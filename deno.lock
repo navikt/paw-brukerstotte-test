@@ -1,15 +1,11 @@
 {
   "version": "5",
   "specifiers": {
-    "jsr:@bgub/eta@*": "4.4.1",
-    "jsr:@bgub/eta@^4.4.1": "4.4.1",
     "jsr:@hono/hono@^4.10.8": "4.10.8",
-    "npm:@navikt/oasis@^4.1.1": "4.1.1"
+    "npm:@navikt/oasis@^4.1.1": "4.1.1",
+    "npm:@types/node@*": "24.2.0"
   },
   "jsr": {
-    "@bgub/eta@4.4.1": {
-      "integrity": "e711072beb6886f3b5ae1cb90e5eeb2584665a0b57874e7f22648c43a6153daa"
-    },
     "@hono/hono@4.10.8": {
       "integrity": "afdbfc8d3028faa79d0d23096265cb41863f7f49cbf8542959bbdffc4c71365a"
     }
@@ -32,6 +28,12 @@
     "@opentelemetry/api@1.9.0": {
       "integrity": "sha512-3giAOQvZiH5F9bMlMiv8+GSPMeqg0dbaeo58/0SlA9sxSqZhnUtxzX9/2FzyhS9sWQf5S0GJE0AKBrFqjpeYcg=="
     },
+    "@types/node@24.2.0": {
+      "integrity": "sha512-3xyG3pMCq3oYCNg7/ZP+E1ooTaGB4cG8JWRsqqOYQdbWNY4zbaV0Ennrd7stjiJEFZCaybcIgpTjJWHRfBSIDw==",
+      "dependencies": [
+        "undici-types"
+      ]
+    },
     "bintrees@1.0.2": {
       "integrity": "sha512-VOMgTMwjAaUG580SXn3LacVgjurrbMme7ZZNYGSSV7mmtY6QQRh0Eg3pwIcntQ77DErK1L0NxkbetjcoXzVwKw=="
     },
@@ -50,11 +52,13 @@
       "dependencies": [
         "bintrees"
       ]
+    },
+    "undici-types@7.10.0": {
+      "integrity": "sha512-t5Fy/nfn+14LuOc2KNYg75vZqClpAiqscVvMygNnlsHBFpSXdJaYtXMcdNLpl/Qvc3P2cB3s6lOV51nqsFq4ag=="
     }
   },
   "workspace": {
     "dependencies": [
-      "jsr:@bgub/eta@^4.4.1",
       "jsr:@hono/hono@^4.10.8",
       "npm:@navikt/oasis@^4.1.1"
     ]
