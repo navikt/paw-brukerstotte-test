@@ -1,13 +1,13 @@
 import { getOboToken } from "@/oboToken.ts";
 import { ArbeidsoekerDetaljer, isProblemDetails } from "@/types.ts";
 
-/**
- * @param ident er enten identitetsnummer for en person ELLER en periode-id
- */
 const isLocalhost = Deno.env.get("ENV") === "local";
 const URL_HENDELSESLOGG_BACKUP = "mock-url";
 const SCOPE_HENDELSESLOGG_BACKUP = "mock-scope";
 
+/**
+ * @param ident er enten identitetsnummer for en person ELLER en periode-id
+ */
 export async function hentHendelselogggBackup(
   ident: string,
   headers: Request,
