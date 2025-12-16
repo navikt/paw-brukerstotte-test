@@ -6,6 +6,7 @@
   },
   "imports": {
     "@/": "./src/",
+    "@/views/": "./views/",
     "@navikt/arbeidssokerregisteret-utils": "npm:@navikt/arbeidssokerregisteret-utils@^1.9.2",
     "@navikt/oasis": "npm:@navikt/oasis@^4.1.1",
     "hono": "jsr:@hono/hono@^4.10.8"

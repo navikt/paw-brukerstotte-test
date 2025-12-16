@@ -1,8 +1,8 @@
 import { Hono } from "hono";
 import { serveStatic } from "hono/deno";
 import { hentHendelselogggBackup } from "@/hendelselogg-backup.ts";
-import { SearchPage } from "../views/pages/SearchPage.tsx";
-import { Error } from "../views/pages/Error.tsx";
+import { SearchPage } from "@/views/pages/SearchPage.tsx";
+import { Error } from "@/views/pages/Error.tsx";
 
 const app = new Hono();
 

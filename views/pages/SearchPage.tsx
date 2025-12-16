@@ -1,7 +1,7 @@
 import type { FC } from "hono/jsx";
-import BaseLayout from "../layouts/BaseLayout.tsx";
-import Header from "../layouts/Header.tsx";
-import { ArbeidsoekerCard } from "../components/ArbeidsoekerCard.tsx";
+import BaseLayout from "@/views/layouts/BaseLayout.tsx";
+import Header from "@/views/layouts/Header.tsx";
+import { ArbeidsoekerCard } from "@/views/components/ArbeidsoekerCard.tsx";
 import type { ArbeidsoekerDetaljer } from "@/types.ts";
 
 const SearchPage: FC<

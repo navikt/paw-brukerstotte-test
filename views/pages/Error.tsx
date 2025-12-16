@@ -1,6 +1,6 @@
 import { FC } from "hono/jsx";
-import BaseLayout from "../layouts/BaseLayout.tsx";
-import Header from "../layouts/Header.tsx";
+import BaseLayout from "@/views/layouts/BaseLayout.tsx";
+import Header from "@/views/layouts/Header.tsx";
 
 const Error: FC<{ message: string }> = ({ message }) => {
   return (
