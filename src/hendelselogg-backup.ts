@@ -13,6 +13,7 @@ export async function hentHendelselogggBackup(
   ident: string,
   headers: Request,
 ): Promise<ArbeidsoekerDetaljer> {
+  console.log(`hentHendelselogggBackup for ident er i gang`);
   if (isLocalhost) {
     const { default: detaljer } = await import("../mock/detaljer.json", {
       with: { type: "json" },

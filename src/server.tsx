@@ -24,6 +24,7 @@ app.post("/search", async (c) => {
   const query = body.q as string;
 
   const headers = c.req.raw;
+  console.log(`Mottatt søk for ident. Kaller hendelseloggbakup.`);
   const personDetaljer = await hentHendelselogggBackup(query, headers);
 
   // Later som det tar litt tid
