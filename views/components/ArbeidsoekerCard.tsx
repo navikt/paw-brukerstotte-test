@@ -19,16 +19,15 @@ const ArbeidsoekerCard: FC<{ detaljer: ArbeidsoekerDetaljer }> = ({
   };
 
   return (
-    <div class="arbeidssoeker-card">
+    <div class="card">
       <div class="header">
         <span
-          class={`status ${
-            gjeldeneTilstand.harAktivePeriode ? "active" : "inactive"
-          }`}
+          class={`status ${gjeldeneTilstand.harAktivePeriode ? "active" : "inactive"
+            }`}
         >
           {gjeldeneTilstand.harAktivePeriode ? "Aktiv" : "Inaktiv"}
         </span>
-        <span class="id">ID: {arbeidssoekerId}</span>
+        <span class="id">Arbeidsøkerid: {arbeidssoekerId}</span>
       </div>
 
       <div class="content">
@@ -43,7 +42,7 @@ const ArbeidsoekerCard: FC<{ detaljer: ArbeidsoekerDetaljer }> = ({
           </div>
           <div class="detail-row">
             <dt>Avsluttet</dt>
-            <dd>{formatDate(gjeldeneTilstand.avsluttet)}</dd>
+            <dd>{formatDate(gjeldeneTilstand?.avsluttet || null)}</dd>
           </div>
           <div class="detail-row">
             <dt>Kafka partition</dt>
@@ -56,27 +55,24 @@ const ArbeidsoekerCard: FC<{ detaljer: ArbeidsoekerDetaljer }> = ({
           <ul>
             <li>
               <span
-                class={`indicator ${
-                  gjeldeneTilstand.apiKall.harOpplysning ? "ok" : "missing"
-                }`}
+                class={`indicator ${gjeldeneTilstand.apiKall.harOpplysning ? "ok" : "missing"
+                  }`}
               />
               Har opplysning
             </li>
             <li>
               <span
-                class={`indicator ${
-                  gjeldeneTilstand.apiKall.harProfilering ? "ok" : "missing"
-                }`}
+                class={`indicator ${gjeldeneTilstand.apiKall.harProfilering ? "ok" : "missing"
+                  }`}
               />
               Har profilering
             </li>
             <li>
               <span
-                class={`indicator ${
-                  gjeldeneTilstand.harOpplysningerMottattHendelse
+                class={`indicator ${gjeldeneTilstand.harOpplysningerMottattHendelse
                     ? "ok"
                     : "missing"
-                }`}
+                  }`}
               />
               Opplysninger mottatt
             </li>
@@ -85,9 +81,9 @@ const ArbeidsoekerCard: FC<{ detaljer: ArbeidsoekerDetaljer }> = ({
       </div>
 
       {historikk.length > 0 && (
-        <div class="historikk">
+        <div class="footer">
           <h4>Historikk ({historikk.length} hendelser)</h4>
-          <ul class="historikk-list">
+          <ul class="footer-list">
             {historikk.slice(0, 5).map((h) => (
               <li key={h.hendelse.hendelseId}>
                 <span class="type">{h.hendelse.hendelseType}</span>

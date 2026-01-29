@@ -20,7 +20,7 @@ const BaseLayout: FC<{
 
         <link
           rel="stylesheet"
-          href="https://cdn.nav.no/aksel/@navikt/ds-css/7.35.2/index.min.css"
+          href="https://cdn.nav.no/aksel/@navikt/ds-css/8.0.0/index.min.css"
         />
         <link rel="stylesheet" href="/static/stylesheet.css" />
         <script src="/static/app.js" defer></script>
