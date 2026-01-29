@@ -4,6 +4,7 @@ import { serveStatic } from "hono/deno";
 import { hentHendelselogggBackup } from "@/hendelselogg-backup.ts";
 import { SearchPage } from "@/views/pages/SearchPage.tsx";
 import { Error } from "@/views/pages/Error.tsx";
+import { hentSnapshot } from "./oppslag-snapshot.ts";
 
 const app = new Hono();
 console.log("Server konfigurert og starter...");
@@ -28,14 +29,16 @@ app.post("/search", async (c) => {
   const headers = c.req.raw;
   console.log(`Mottatt søk for ident. Kaller hendelseloggbakup.`);
   const personDetaljer = await hentHendelselogggBackup(query, headers);
+  const identnummerFraDetaljer = personDetaljer?.historikk[0]?.hendelse.data
+    .identitetsnummer;
+  const snapshot = await hentSnapshot(identnummerFraDetaljer, headers);
 
-  // Later som det tar litt tid
-  await new Promise((resolve) => setTimeout(resolve, 1000));
   return c.html(
     <SearchPage
       title={`Brukerstøtte | Søk: ${query}`}
       searchQuery={query}
       detaljer={personDetaljer}
+      snapshot={snapshot}
     />,
   );
 });
