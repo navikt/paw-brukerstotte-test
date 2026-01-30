@@ -5,7 +5,7 @@ import { isProblemDetails } from "./types.ts";
 const isLocalhost = Deno.env.get("ENV") === "local";
 const HENDELSELOGG_BACKUP_URL = Deno.env.get("HENDELSELOGG_BACKUP_URL");
 const NAIS_CLUSTER_NAME = Deno.env.get("NAIS_CLUSTER_NAME");
-const OPPSLAG_V2_URL = Deno.env.get("OPPSLAG_V2_URL");
+const OPPSLAG_V2_URL = Deno.env.get("OPPSLAG_API_V2_URL");
 
 export async function hentSnapshot(
   ident: string,
