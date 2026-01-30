@@ -28,6 +28,7 @@ spec:
     outbound:
       rules:
         - application: paw-arbeidssoekerregisteret-hendelselogg-backup
+        - application: paw-arbeidssoekerregisteret-api-oppslag-v2
   env:
     - name: HENDELSELOGG_BACKUP_URL
       value: http://paw-arbeidssoekerregisteret-hendelselogg-backup/api/v1/arbeidssoeker/detaljer
