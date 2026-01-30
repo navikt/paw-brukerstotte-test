@@ -7,38 +7,6 @@ type OpplysningerProps = {
   data: Snapshot;
 };
 
-const formatNusKode = (nus: string): string => {
-  const nusMap: Record<string, string> = {
-    "0": "Ingen utdanning",
-    "2": "Grunnskole",
-    "3": "Videregående, grunnkurs",
-    "4": "Videregående, avsluttende",
-    "6": "Høyere utdanning, 1-4 år",
-    "7": "Høyere utdanning, 4+ år",
-    "8": "Forskerutdanning",
-  };
-  return nusMap[nus] ?? `Ukjent (${nus})`;
-};
-
-const formatJaNei = (value: string | undefined): string => {
-  if (!value) return "—";
-  if (value === "JA") return "Ja";
-  if (value === "NEI") return "Nei";
-  if (value === "VET_IKKE") return "Vet ikke";
-  return value;
-};
-
-const formatDate = (dateString: string | null) => {
-  if (!dateString) return "—";
-  return new Date(dateString).toLocaleDateString("nb-NO", {
-    day: "2-digit",
-    month: "2-digit",
-    year: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-};
-
 const Opplysninger: FC<OpplysningerProps> = ({ data }) => {
   const { opplysning } = data;
   const jobbsituasjon = opplysning?.jobbsituasjon;
