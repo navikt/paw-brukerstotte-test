@@ -6,7 +6,7 @@ metadata:
   labels:
     team: paw
 spec:
-  image: {{ image }}
+  image: { { image } }
   port: 8000
   ingresses:
     - https://paw-brukerstotte-test.ansatt.dev.nav.no
@@ -31,3 +31,5 @@ spec:
   env:
     - name: HENDELSELOGG_BACKUP_URL
       value: http://paw-arbeidssoekerregisteret-hendelselogg-backup/api/v1/arbeidssoeker/detaljer
+    - name: OPPSLAG_API_V2_URL
+      value: http://paw-arbeidssoekerregisteret-api-oppslag-v2
