@@ -36,7 +36,11 @@ const Opplysninger: FC<OpplysningerProps> = ({ data }) => {
             id:
           </div>
           <div class="id">
-            <CopyButton copyString={opplysning.id} title={opplysning.id} />
+            <CopyButton
+              copyString={opplysning.id}
+              title={opplysning.id}
+              ariaText="Kopier opplysnings-id"
+            />
           </div>
         </div>
         <div class="content">
