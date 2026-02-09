@@ -11,7 +11,14 @@ RUN echo "//npm.pkg.github.com/:_authToken=${NPM_AUTH_TOKEN}" >> ~/.npmrc && \
     rm ~/.npmrc
 
 
-USER deno
+# Runtime stage — distroless, no shell, no extra OS packages
+FROM denoland/deno:distroless-2.6.8
+WORKDIR /app
+
+COPY --from=builder /app .
+COPY --from=builder /deno-dir /deno-dir
+
+
 ENV TZ="Europe/Oslo"
 EXPOSE 8000
 CMD ["deno", "task", "start"]

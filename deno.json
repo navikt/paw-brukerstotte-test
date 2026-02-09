@@ -1,7 +1,7 @@
 {
   "tasks": {
     "dev": "deno run --env-file=.env.local --allow-env --allow-net --allow-read --watch src/server.tsx",
-    "start": "deno run --allow-env --allow-net --allow-read src/server.tsx",
+    "start": "deno run  --cached-only --allow-env --allow-net --allow-read src/server.tsx",
     "check": "deno check --unstable-tsgo ."
   },
   "imports": {
