@@ -21,4 +21,4 @@ COPY --from=builder /deno-dir /deno-dir
 
 ENV TZ="Europe/Oslo"
 EXPOSE 8000
-CMD ["deno", "task", "start"]
+CMD ["task", "start"]
