@@ -12,7 +12,7 @@ RUN echo "//npm.pkg.github.com/:_authToken=${NPM_AUTH_TOKEN}" >> ~/.npmrc && \
 
 
 # Runtime stage — distroless, no shell, no extra OS packages
-FROM denoland/deno:distroless-2.6.8
+FROM denoland/deno:distroless-2.7.12
 WORKDIR /app
 
 COPY --from=builder /app .
