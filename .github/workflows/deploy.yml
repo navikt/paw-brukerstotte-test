@@ -30,6 +30,9 @@ jobs:
       - name: Deno lint
         run: deno lint
 
+      - name: Deno check
+        run: deno task check
+
       - name: docker-build-push
         uses: nais/docker-build-push@v0
         id: docker-build-push
