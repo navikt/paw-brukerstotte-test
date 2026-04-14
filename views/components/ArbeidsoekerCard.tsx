@@ -22,8 +22,9 @@ const ArbeidsoekerCard: FC<{ detaljer: ArbeidsoekerDetaljer }> = ({
     <div class="card">
       <div class="header">
         <span
-          class={`status ${gjeldeneTilstand.harAktivePeriode ? "active" : "inactive"
-            }`}
+          class={`status ${
+            gjeldeneTilstand.harAktivePeriode ? "active" : "inactive"
+          }`}
         >
           {gjeldeneTilstand.harAktivePeriode ? "Aktiv" : "Inaktiv"}
         </span>
@@ -55,24 +56,27 @@ const ArbeidsoekerCard: FC<{ detaljer: ArbeidsoekerDetaljer }> = ({
           <ul>
             <li>
               <span
-                class={`indicator ${gjeldeneTilstand.apiKall.harOpplysning ? "ok" : "missing"
-                  }`}
+                class={`indicator ${
+                  gjeldeneTilstand.apiKall.harOpplysning ? "ok" : "missing"
+                }`}
               />
               Har opplysning
             </li>
             <li>
               <span
-                class={`indicator ${gjeldeneTilstand.apiKall.harProfilering ? "ok" : "missing"
-                  }`}
+                class={`indicator ${
+                  gjeldeneTilstand.apiKall.harProfilering ? "ok" : "missing"
+                }`}
               />
               Har profilering
             </li>
             <li>
               <span
-                class={`indicator ${gjeldeneTilstand.harOpplysningerMottattHendelse
+                class={`indicator ${
+                  gjeldeneTilstand.harOpplysningerMottattHendelse
                     ? "ok"
                     : "missing"
-                  }`}
+                }`}
               />
               Opplysninger mottatt
             </li>
