@@ -1,7 +1,7 @@
 {
   "tasks": {
     "dev": "deno task install-hooks && deno run --env-file=.env.local --allow-env --allow-net --allow-read --watch src/server.tsx",
-    "start": "deno run  --cached-only --allow-env --allow-net --allow-read src/server.tsx",
+    "start": "deno run --cached-only --allow-env=ENV,NAIS_CLUSTER_NAME,HENDELSELOGG_BACKUP_URL,OPPSLAG_API_V2_URL,NAIS_TOKEN_ENDPOINT,NAIS_TOKEN_EXCHANGE_ENDPOINT,NAIS_TOKEN_INTROSPECTION_ENDPOINT,TOKEN_X_ISSUER,AZURE_OPENID_CONFIG_ISSUER,TZ,OTEL_EXPORTER_OTLP_ENDPOINT,OTEL_SERVICE_NAME,OTEL_RESOURCE_ATTRIBUTES --allow-net --allow-read=./static src/server.tsx",
     "check": "deno check --unstable-tsgo .",
     "lint": "deno lint",
     "fmt": "deno fmt",

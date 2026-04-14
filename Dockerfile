@@ -1,13 +1,13 @@
 FROM denoland/deno:2.7.12 AS builder
 WORKDIR /app
 # Copy dependency files first
-COPY deno.json deno.lock* ./
+COPY deno.json deno.lock ./
 COPY . .
 
 # Cache dependencies with npm token
 ARG NPM_AUTH_TOKEN
 RUN echo "//npm.pkg.github.com/:_authToken=${NPM_AUTH_TOKEN}" >> ~/.npmrc && \
-    deno cache src/server.tsx && \
+    deno cache --frozen src/server.tsx && \
     rm ~/.npmrc
 
 

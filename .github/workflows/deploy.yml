@@ -16,6 +16,9 @@ jobs:
       packages: "write"
       id-token: "write"
 
+    env:
+      DENO_FROZEN: "1"
+
     steps:
       - uses: actions/checkout@v5
         name: Checkout
