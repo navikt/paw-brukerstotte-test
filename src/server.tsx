@@ -31,7 +31,7 @@ app.post("/search", async (c) => {
   const personDetaljer = await hentHendelselogggBackup(query, headers);
   const identnummerFraDetaljer = personDetaljer?.historikk[0]?.hendelse.data
     .identitetsnummer;
-  const snapshot = await hentSnapshot(identnummerFraDetaljer, headers);
+  const snapshot = await hentSnapshot(identnummerFraDetaljer);
 
   return c.html(
     <SearchPage
