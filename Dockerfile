@@ -4,11 +4,10 @@ WORKDIR /app
 COPY deno.json deno.lock ./
 COPY . .
 
-# Cache dependencies with npm token
-ARG NPM_AUTH_TOKEN
-RUN echo "//npm.pkg.github.com/:_authToken=${NPM_AUTH_TOKEN}" >> ~/.npmrc && \
-    deno cache --frozen src/server.tsx && \
-    rm ~/.npmrc
+# Cache dependencies with npm token — token mounted in memory, never in image history
+RUN --mount=type=secret,id=npm_token \
+    NODE_AUTH_TOKEN=$(cat /run/secrets/npm_token) \
+    deno cache --frozen src/server.tsx
 
 
 # Runtime stage — distroless, no shell, no extra OS packages

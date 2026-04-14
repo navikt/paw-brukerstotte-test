@@ -35,6 +35,8 @@ jobs:
 
       - name: Deno check
         run: deno task check
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
 
       - name: docker-build-push
         uses: nais/docker-build-push@v0
@@ -43,8 +45,8 @@ jobs:
           team: paw
           identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
           project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
-          build_args: |
-            NPM_AUTH_TOKEN=${{ secrets.READER_TOKEN }}
+          build_secrets: |
+            npm_token=${{ secrets.READER_TOKEN }}
     outputs:
       image: ${{ steps.docker-build-push.outputs.image }}
 

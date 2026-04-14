@@ -1,10 +1,10 @@
 {
   "version": "5",
   "specifiers": {
-    "jsr:@hono/hono@^4.12.12": "4.12.12",
-    "npm:@navikt/aksel-icons@^8.9.0": "8.9.0",
-    "npm:@navikt/arbeidssokerregisteret-utils@^2.1.0": "2.1.0",
-    "npm:@navikt/oasis@^4.1.4": "4.1.4",
+    "jsr:@hono/hono@4.12.12": "4.12.12",
+    "npm:@navikt/aksel-icons@8.9.0": "8.9.0",
+    "npm:@navikt/arbeidssokerregisteret-utils@2.1.0": "2.1.0",
+    "npm:@navikt/oasis@4.1.4": "4.1.4",
     "npm:@types/node@*": "24.2.0"
   },
   "jsr": {
@@ -69,10 +69,10 @@
   },
   "workspace": {
     "dependencies": [
-      "jsr:@hono/hono@^4.12.12",
-      "npm:@navikt/aksel-icons@^8.9.0",
-      "npm:@navikt/arbeidssokerregisteret-utils@^2.1.0",
-      "npm:@navikt/oasis@^4.1.4"
+      "jsr:@hono/hono@4.12.12",
+      "npm:@navikt/aksel-icons@8.9.0",
+      "npm:@navikt/arbeidssokerregisteret-utils@2.1.0",
+      "npm:@navikt/oasis@4.1.4"
     ]
   }
 }
