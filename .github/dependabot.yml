@@ -1,0 +1,38 @@
+version: 2
+
+updates:
+  # Dockerfile — denoland/deno base image
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Europe/Oslo"
+    open-pull-requests-limit: 5
+    cooldown:
+      semver-major-days: 14
+      semver-minor-days: 7
+      semver-patch-days: 3
+    groups:
+      docker:
+        patterns: ["*"]
+
+  # GitHub Actions — actions/*, denoland/setup-deno o.l.
+  # NB: nais/docker-build-push@v0 og nais/deploy@v2 er major-tags
+  # som NAIS selv ruller oppdateringer gjennom — disse trenger ikke bumpes.
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Europe/Oslo"
+    open-pull-requests-limit: 5
+    cooldown:
+      semver-major-days: 14
+      semver-minor-days: 7
+      semver-patch-days: 3
+    groups:
+      actions:
+        patterns: ["*"]
