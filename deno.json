@@ -5,15 +5,16 @@
     "check": "deno check --unstable-tsgo .",
     "lint": "deno lint",
     "fmt": "deno fmt",
-    "install-hooks": "git config core.hooksPath .githooks"
+    "install-hooks": "git config core.hooksPath .githooks",
+    "outdated": "deno outdated --minimum-dependency-age P7D"
   },
   "imports": {
     "@/": "./src/",
     "@/views/": "./views/",
-    "@navikt/aksel-icons": "npm:@navikt/aksel-icons@^8.1.0",
-    "@navikt/arbeidssokerregisteret-utils": "npm:@navikt/arbeidssokerregisteret-utils@^1.9.2",
-    "@navikt/oasis": "npm:@navikt/oasis@^4.1.1",
-    "hono": "jsr:@hono/hono@^4.10.8"
+    "@navikt/aksel-icons": "npm:@navikt/aksel-icons@^8.9.0",
+    "@navikt/arbeidssokerregisteret-utils": "npm:@navikt/arbeidssokerregisteret-utils@^2.1.0",
+    "@navikt/oasis": "npm:@navikt/oasis@^4.1.4",
+    "hono": "jsr:@hono/hono@^4.12.12"
   },
   "compilerOptions": {
     "jsx": "precompile",
