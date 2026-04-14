@@ -30,7 +30,8 @@
         "deno",
         "!typescript-language-server",
         "!vtsls",
-        "!eslint"
+        "!eslint",
+        "!biome"
       ],
       "formatter": "language_server"
     },
@@ -39,7 +40,8 @@
         "deno",
         "!typescript-language-server",
         "!vtsls",
-        "!eslint"
+        "!eslint",
+        "!biome"
       ],
       "formatter": "language_server"
     },
@@ -48,7 +50,8 @@
         "deno",
         "!typescript-language-server",
         "!vtsls",
-        "!eslint"
+        "!eslint",
+        "!biome"
       ],
       "formatter": "language_server"
     }

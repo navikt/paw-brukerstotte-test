@@ -24,8 +24,11 @@ jobs:
         with:
           deno-version: "2.7.12"
 
+      - name: Deno fmt
+        run: deno fmt --check
+
       - name: Deno lint
-        run: deno lint --unstable-tsgo .
+        run: deno lint
 
       - name: docker-build-push
         uses: nais/docker-build-push@v0

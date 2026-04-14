@@ -1,0 +1,10 @@
+#!/bin/sh
+set -e
+
+echo "Kjører deno fmt --check..."
+deno fmt --check
+
+echo "Kjører deno lint..."
+deno lint
+
+echo "✓ Alle sjekker passerte."

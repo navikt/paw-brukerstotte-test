@@ -1,8 +1,11 @@
 {
   "tasks": {
-    "dev": "deno run --env-file=.env.local --allow-env --allow-net --allow-read --watch src/server.tsx",
+    "dev": "deno task install-hooks && deno run --env-file=.env.local --allow-env --allow-net --allow-read --watch src/server.tsx",
     "start": "deno run  --cached-only --allow-env --allow-net --allow-read src/server.tsx",
-    "check": "deno check --unstable-tsgo ."
+    "check": "deno check --unstable-tsgo .",
+    "lint": "deno lint",
+    "fmt": "deno fmt",
+    "install-hooks": "git config core.hooksPath .githooks"
   },
   "imports": {
     "@/": "./src/",
@@ -15,5 +18,11 @@
   "compilerOptions": {
     "jsx": "precompile",
     "jsxImportSource": "hono/jsx"
+  },
+  "lint": {
+    "include": ["src/", "views/", "static/app.js"]
+  },
+  "fmt": {
+    "include": ["src/", "views/", "static/app.js", "static/stylesheet.css"]
   }
 }
