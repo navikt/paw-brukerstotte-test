@@ -1,4 +1,4 @@
-FROM denoland/deno:2.6.8 AS builder
+FROM denoland/deno:2.7.12 AS builder
 WORKDIR /app
 # Copy dependency files first
 COPY deno.json deno.lock* ./
