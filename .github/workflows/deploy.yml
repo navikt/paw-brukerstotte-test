@@ -25,7 +25,7 @@ jobs:
 
       - uses: denoland/setup-deno@v2
         with:
-          deno-version: "2.7.12"
+          deno-version: "2.7.14"
 
       - name: Deno fmt
         run: deno fmt --check

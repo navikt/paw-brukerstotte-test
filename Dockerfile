@@ -1,4 +1,4 @@
-FROM denoland/deno:2.7.12 AS builder
+FROM denoland/deno:2.7.14 AS builder
 WORKDIR /app
 # Copy dependency files first
 COPY deno.json deno.lock ./
@@ -11,7 +11,7 @@ RUN --mount=type=secret,id=npm_token \
 
 
 # Runtime stage — distroless, no shell, no extra OS packages
-FROM denoland/deno:distroless-2.7.12
+FROM denoland/deno:distroless-2.7.14
 WORKDIR /app
 
 COPY --from=builder /app .
