@@ -14,3 +14,13 @@ jspm_packages/
 .env
 .env.*
 !.env.example
+
+# Editor-specific overrides
+biome.json
+.vscode/
+.zed/
+.idea/
+
+# Generated client bundle
+static/islands.js
+static/islands.js.map
