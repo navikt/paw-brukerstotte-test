@@ -23,6 +23,12 @@ const Opplysninger: FC<OpplysningerProps> = ({ data }) => {
   }
 
   const besvarelser = mapOpplysninger(opplysning);
+  const jobbdetaljer = jobbsituasjon?.beskrivelser
+    .filter((b) => b.detaljer)
+    .map((b) => ({
+      stilling: b.detaljer?.stilling ?? "—",
+      styrk08: b.detaljer?.stilling_styrk08 ?? "—",
+    })) ?? [];
 
   return (
     <>
@@ -43,39 +49,42 @@ const Opplysninger: FC<OpplysningerProps> = ({ data }) => {
             />
           </div>
         </div>
-        <div class="content">
-          <dl>
-            {besvarelser.map((item) => (
-              <div class="detail-row" key={`${item.sporsmal}-${item.svar}`}>
-                <dt>
-                  {item.sporsmal}
-                </dt>
-                <dd>
-                  {item.svar}
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-        {jobbsituasjon &&
-          jobbsituasjon.beskrivelser.some((b) => b.detaljer) &&
-          (
+        <div
+          data-island="opplysninger-accordion"
+          data-island-props={JSON.stringify({ besvarelser, jobbdetaljer })}
+        >
+          {/* Fallback: vises før islands.js laster */}
+          <div class="content">
+            <dl>
+              {besvarelser.map((item) => (
+                <div
+                  class="detail-row"
+                  key={`${item.sporsmal}-${item.svar}`}
+                >
+                  <dt>
+                    {item.sporsmal}
+                  </dt>
+                  <dd>
+                    {item.svar}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+          {jobbdetaljer.length > 0 && (
             <div class="footer">
               <h4>Jobbdetaljer</h4>
               <ul class="footer-list">
-                {jobbsituasjon.beskrivelser
-                  .filter((b) => b.detaljer)
-                  .map((b, index) => (
-                    <li key={index}>
-                      <span class="type">{b.detaljer?.stilling ?? "—"}</span>
-                      <span class="time">
-                        STYRK: {b.detaljer?.stilling_styrk08 ?? "—"}
-                      </span>
-                    </li>
-                  ))}
+                {jobbdetaljer.map((jd, index) => (
+                  <li key={index}>
+                    <span class="type">{jd.stilling}</span>
+                    <span class="time">STYRK: {jd.styrk08}</span>
+                  </li>
+                ))}
               </ul>
             </div>
           )}
+        </div>
       </div>
     </>
   );

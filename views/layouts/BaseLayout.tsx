@@ -20,10 +20,11 @@ const BaseLayout: FC<{
 
         <link
           rel="stylesheet"
-          href="https://cdn.nav.no/aksel/@navikt/ds-css/8.0.0/index.min.css"
+          href="https://cdn.nav.no/aksel/@navikt/ds-css/8.10.5/index.min.css"
         />
         <link rel="stylesheet" href="/static/stylesheet.css" />
         <script src="/static/app.js" defer></script>
+        <script src="/static/islands.js" type="module" defer></script>
       </head>
       <body>
         {children}

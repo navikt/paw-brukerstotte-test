@@ -1,8 +1,10 @@
 {
   "tasks": {
-    "dev": "deno task install-hooks && deno run --env-file=.env.local --allow-env --allow-net --allow-read --watch src/server.tsx",
+    "build:client": "deno run --allow-read --allow-write --allow-env --allow-run build-client.ts",
+    "build:client:watch": "deno run --allow-read --allow-write --allow-env --allow-run build-client.ts --watch",
+    "dev": "deno task install-hooks && deno task build:client:watch & deno run --env-file=.env.local --allow-env --allow-net --allow-read --watch src/server.tsx",
     "start": "deno run --cached-only --allow-env=ENV,NAIS_CLUSTER_NAME,HENDELSELOGG_BACKUP_URL,OPPSLAG_API_V2_URL,NAIS_TOKEN_ENDPOINT,NAIS_TOKEN_EXCHANGE_ENDPOINT,NAIS_TOKEN_INTROSPECTION_ENDPOINT,TOKEN_X_ISSUER,AZURE_OPENID_CONFIG_ISSUER,TZ,OTEL_EXPORTER_OTLP_ENDPOINT,OTEL_SERVICE_NAME,OTEL_RESOURCE_ATTRIBUTES --allow-net --allow-read=./static src/server.tsx",
-    "check": "deno check --unstable-tsgo .",
+    "check": "deno check --unstable-tsgo src/ views/",
     "lint": "deno lint",
     "fmt": "deno fmt",
     "install-hooks": "git config core.hooksPath .githooks",
@@ -13,17 +15,31 @@
     "@/views/": "./views/",
     "@navikt/aksel-icons": "npm:@navikt/aksel-icons@8.9.0",
     "@navikt/arbeidssokerregisteret-utils": "npm:@navikt/arbeidssokerregisteret-utils@2.1.0",
+    "@navikt/ds-react": "npm:@navikt/ds-react@8",
     "@navikt/oasis": "npm:@navikt/oasis@4.1.4",
-    "hono": "jsr:@hono/hono@4.12.12"
+    "esbuild": "npm:esbuild@0.25",
+    "hono": "jsr:@hono/hono@4.12.12",
+    "react": "npm:react@19",
+    "react-dom": "npm:react-dom@19",
+    "react-dom/client": "npm:react-dom@19/client",
+    "react/jsx-runtime": "npm:react@19/jsx-runtime"
   },
+  "workspace": ["./client"],
+  "nodeModulesDir": "auto",
   "compilerOptions": {
     "jsx": "precompile",
     "jsxImportSource": "hono/jsx"
   },
   "lint": {
-    "include": ["src/", "views/", "static/app.js"]
+    "include": ["src/", "views/", "client/", "static/app.js"]
   },
   "fmt": {
-    "include": ["src/", "views/", "static/app.js", "static/stylesheet.css"]
+    "include": [
+      "src/",
+      "views/",
+      "client/",
+      "static/app.js",
+      "static/stylesheet.css"
+    ]
   }
 }

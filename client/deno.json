@@ -1,0 +1,14 @@
+{
+  "imports": {
+    "react": "npm:react@19",
+    "react/": "npm:/react@19/",
+    "react-dom/": "npm:/react-dom@19/",
+    "@types/react": "npm:@types/react@19",
+    "@navikt/ds-react/": "npm:/@navikt/ds-react@8/"
+  },
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "lib": ["dom", "dom.iterable", "esnext"]
+  }
+}

@@ -9,6 +9,11 @@ RUN --mount=type=secret,id=npm_token \
     NODE_AUTH_TOKEN=$(cat /run/secrets/npm_token) \
     deno cache --frozen src/server.tsx
 
+# Build client islands bundle
+RUN --mount=type=secret,id=npm_token \
+    NODE_AUTH_TOKEN=$(cat /run/secrets/npm_token) \
+    deno task build:client
+
 
 # Runtime stage — distroless, no shell, no extra OS packages
 FROM denoland/deno:distroless-2.7.14

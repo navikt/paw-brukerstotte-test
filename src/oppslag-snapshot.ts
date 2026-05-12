@@ -14,7 +14,7 @@ export async function hentSnapshot(
     const { default: snapshot } = await import("@/mock/snapshot.json", {
       with: { type: "json" },
     });
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 10));
     // @ts-expect-error - Give error on type e.g. "OPPLYSNINGER_V4" as string
     return snapshot;
   }

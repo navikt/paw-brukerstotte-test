@@ -17,7 +17,7 @@ export async function hentHendelselogggBackup(
     const { default: detaljer } = await import("@/mock/detaljer.json", {
       with: { type: "json" },
     });
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 10));
     return detaljer as ArbeidsoekerDetaljer;
   }
 

@@ -5,6 +5,7 @@ import { ArbeidsoekerCard } from "@/views/components/ArbeidsoekerCard.tsx";
 import type { ArbeidsoekerDetaljer } from "@/types.ts";
 import { Snapshot } from "@navikt/arbeidssokerregisteret-utils/oppslag/v3";
 import { Opplysninger } from "../components/Opplysninger.tsx";
+import { Historikk } from "../components/Historikk.tsx";
 
 type SearchPageProps = {
   title: string;
@@ -32,6 +33,9 @@ const SearchPage: FC<
           </div>
 
           {snapshot && <Opplysninger data={snapshot} />}
+        </div>
+        <div>
+          {detaljer && <Historikk detaljer={detaljer} />}
         </div>
       </main>
     </BaseLayout>

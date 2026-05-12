@@ -1,10 +1,8 @@
-/* Base reset */
+/* Base reset — scoped to avoid overriding Aksel component styles */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 /* Make sure footer is at bottom */
 body {
@@ -148,6 +146,7 @@ header {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: var(--ax-space-16, 1rem);
   max-width: 1250px;
+  margin-bottom: 2rem;
 }
 
 /* =============================================================================
